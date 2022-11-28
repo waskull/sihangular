@@ -1,0 +1,12 @@
+<app-header title="Compras"></app-header>
+
+<hr>
+<div class="card shadow border-0 mb-7">
+    <div class="card-header">
+        <div class="row">
+            <h5 class="mb-0 col">Pedidos </h5>
+                <app-modal [purchaseForm]="true" modalId="modal" (emitData)="newValue($event)" class="col text-sm-end"></app-modal>
+        </div>
+    </div>
+    <app-table [colNames]="columnNames" [columns]="columns" [report]="true" [rowData]="purchaseList" [purchaseModal]="true" [operations]="op" (onEdit)="edit($event)" (onDelete)="delete($event)"></app-table>
+</div>  

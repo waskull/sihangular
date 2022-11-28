@@ -1,0 +1,404 @@
+
+<nav id="navbarExample" class="nav navbar navbar-expand-lg fixed-top navbar-light" aria-label="Main navigation">
+    <div class="container">
+      
+      
+         <a class="navbar-brand logo-text" (click)="moveToHeader()">SIHAM JD</a> 
+        <button class="navbar-toggler p-0 border-0" type="button" id="navbarSideCollapse" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ms-auto navbar-nav-scroll">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" (click)="moveToHeader()">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="moveToServices()">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="moveToDetails()" >Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="moveToFeatures()">Ofrecemos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="moveToContact()">Contacto</a>
+                </li>
+            </ul>
+            <span class="nav-item">
+                <a *ngIf="!userData" class="btn-solid-sm" routerLink="login">Ir al Login</a>
+                <a *ngIf="userData!=undefined || 'undefined' || null" class="btn-solid-sm" routerLink="dashboard">Ir al Dashboard</a>
+            </span>
+        </div> 
+    </div> 
+  </nav>
+  <header #header  id="header" class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-xl-5">
+                <div class="text-container">
+                    <h1 class="h1-large">SIHAM TU MEJOR OPCIÓN.</h1>
+                    <p class="p-large text-sm-start">Somos una empresa dedicada a la venta y distribución de víveres, alimentos y productos misceláneos en el estado Monagas brindando una gran gama de productos tanto nacionales como importados.</p>
+                    <button *ngIf="userData" class="btn-solid-lg w-100" routerLink="dashboard">Ir al Dashboard</button>
+                    <button *ngIf="!userData" class="btn-solid-lg w-40" routerLink="login">Ir al Login</button>
+                </div>
+            </div> 
+            <div class="col-lg-6 col-xl-7">
+                <div class="image-container">
+                    <img class="imge" src="assets/images/main.jpeg" alt="alternative" />
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+  </header> 
+  <div class="cards-1 bg-gray"  id="services" #services >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>Explora nuestros servicios</h2>
+            </div> 
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+        <div class="row">
+            <div class="col-lg-12">
+                
+              
+                <div class="card p-3" >
+                    <div class="card-icon mx-auto">
+                        <span class="fas fa-headphones-alt"></span>
+                    </div>
+                    <div class="card-body m-1">
+                        <h5 class="card-title">Ofrecemos los mejores productos</h5>
+                        <p>Et blandit nisl libero at arcu. Donec ac lectus sed tellus mollis viverra. Nullam pharetra ante at nunc elementum</p>
+  
+                    </div>
+                </div>
+            
+                <div class="card p-3">
+                    <div class="card-icon  mx-auto red">
+                        <span class="far fa-clipboard"></span>
+                    </div>
+                    <div class="card-body m-1">
+                        <h5 class="card-title">Excelentes precios</h5>
+                        <p>Vulputate nibh feugiat. Morbi pellent diam nec libero lacinia, sed ultrices velit scelerisque. Nunc placerat justo sem</p>
+                    </div>
+                </div>
+              
+                <div class="card p-3" >
+                    <div class="card-icon  mx-auto green">
+                        <span class="far fa-comments"></span>
+                    </div>
+                    <div class="card-body m-1">
+                        <h5 class="card-title">No se me ocurre que poner aca xd</h5>
+                        <p>Ety suscipit metus sollicitudin euqu isq imperdiet nibh nec magna tincidunt, nec pala vehicula neque sodales verum</p>
+  
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    </div>
+  </div> 
+  <div class="basic-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-xl-7">
+                <div class="image-container">
+                    <img class="img-fluid" src="assets/images/details-1.png" alt="alternative" />
+                </div> 
+            </div> 
+            <div class="col-lg-6 col-xl-5">
+                <div class="text-container">
+                    <div class="section-title">EL MEJOR SERVICIO</div>
+                    <h2>PERSONAL ALTAMENTE CAPACITADO</h2>
+                    <p>Contamos con un servicio de alta calidad para todos aquellos que tengan pequeños, medianos y grandes comercios,  así como también, emprendedores. Además,  contamos con un personal capacitado que visitan a cada uno de nuestros clientes orientándolos en las diferentes compras.</p>
+                </div> 
+            </div> 
+        </div>
+    </div> 
+  </div>
+  <div class="basic-2"  id="details" #details>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-xl-5">
+                <div class="text-container">
+                    <div class="section-title">NOSOTROS</div>
+                    <h2>SIHAM ES UNA DISTRIBUIDORA</h2>
+                    <p>SIHAM JD, C.A, fue fundada en el año 2016, como una pequeña empresa cuyo objetivo principal seria servir a locales y pequeños comerciantes
+                        con la distribucion de agua. A lo largo del tiempo se ha ido desarrollando y fortaleciendo dentro del mercado con nueva linea de productos de viveres
+                        y confites al mayor y detal, cubriendo canales bajos y medianos, con los precios mas competitivos del mercado, trabajando con clientes de locales conocido en la zona del estado monagas.</p>
+                </div> 
+            </div> 
+            <div class="col-lg-6 col-xl-7">
+                <div class="image-container">
+                    <img class="img-fluid" src="assets/images/details-2.png" alt="alternative" />
+                </div> 
+            </div> 
+        </div>
+    </div> 
+  </div> 
+  <div id="features" #features class="accordion-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <h2 class="h2-heading">LO QUE OFRECEMOS</h2>
+                <p class="p-heading">Contamos con un servicio de alta calidad para todos aquellos que tengan pequeños, medianos y grandes comercios,  así como también, emprendedores. Además,  contamos con un personal capacitado que visitan a cada uno de nuestros clientes orientándolos en las diferentes compras.</p>
+            </div> 
+        </div>   
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="accordion" id="accordionExample">
+                    
+                   
+                    <div class="accordion-item">
+                        <div class="accordion-icon">
+                            <span class="fas fa-tv"></span>
+                        </div> 
+                        <div class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Los Mejores Precios
+                            </button>
+                        </div>
+                        <div class="accordion-body">Mauris ornare libero et pharetra hendrerit. Cura elementum lectus quis tellus pretium, vitae lobortis dui sagittis aliquam et enim vel semon anticus</div>
+                        
+                    </div>
+                   
+                   
+                    <div class="accordion-item">
+                        <div class="accordion-icon blue">
+                            <span class="fas fa-microphone"></span>
+                        </div> 
+                        <div class="accordion-header" id="headingTwo">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                El Mejor Servicio
+                            </button>
+                        </div>
+                        <div class="accordion-body">Mauris ornare libero et pharetra hendrerit. Cura elementum lectus quis tellus pretium, vitae lobortis dui sagittis aliquam et enim vel semon anticus</div>
+                        
+                    </div>
+                   
+                   
+                    <div class="accordion-item">
+                        <div class="accordion-icon purple">
+                            <span class="fas fa-video"></span>
+                        </div> 
+                        <div class="accordion-header" id="headingThree">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Años de experiencia en el mercado
+                            </button>
+                        </div>
+                        <div class="accordion-body">Mauris ornare libero et pharetra hendrerit. Cura elementum lectus quis tellus pretium, vitae lobortis dui sagittis aliquam et enim vel semon anticus</div>
+                        
+                    </div>
+                   
+                    
+                   
+                    <div class="accordion-item">
+                        <div class="accordion-icon orange">
+                            <span class="fas fa-tools"></span>
+                        </div> 
+                        <div class="accordion-header" id="headingFour">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Pedidos Rapidos
+                            </button>
+                        </div>
+                        <div class="accordion-body">Mauris ornare libero et pharetra hendrerit. Cura elementum lectus quis tellus pretium, vitae lobortis dui sagittis aliquam et enim vel semon anticus</div>
+                        
+                    </div>
+                   
+                </div> 
+            </div> 
+            <div class="col-xl-7">
+                <div class="image-container">
+                    <img class="img-fluid" src="assets/images/features-dashboard.png" alt="alternative"/>
+                </div> 
+            </div> 
+        </div>
+    </div> 
+  </div> 
+  <div class="cards-2 bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="h2-heading">NUESTROS CLIENTES</h2>
+            </div> 
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                
+                <div class="card">
+                    <img class="quotes" src="assets/images/angie.jpg" alt="alternative" />
+                    <div class="card-body">
+                        <p class="testimonial-text">Excelente atención y precios</p>
+                        <div class="testimonial-author">Angie (La Amiguita)</div>
+                        <div class="occupation">Aquella que no debe de ser nombrada</div>
+                    </div>
+                    <div class="gradient-floor red-to-blue"></div>
+                </div>
+              
+                
+                <div class="card">
+                    <img class="quotes" src="assets/images/apua.jpg" alt="alternative" />
+                    <div class="card-body">
+                        <p class="testimonial-text">Tiene buenos precios especialmente en las galletas</p>
+                        <div class="testimonial-author">Daniel</div>
+                        <div class="occupation">Bestie de Veronica</div>
+                    </div>
+                    <div class="gradient-floor blue-to-purple"></div>
+                </div>
+              
+                
+                <div class="card">
+                    <img class="quotes" src="assets/images/frank.jpg" alt="alternative" />
+                    <div class="card-body">
+                        <p class="testimonial-text">Efectivamente</p>
+                        <div class="testimonial-author">Frank Diaz</div>
+                        <div class="occupation">Mejor Profesor de la UDO</div>
+                    </div>
+                    <div class="gradient-floor purple-to-green"></div>
+                </div>
+              
+                
+                
+                <div class="card">
+                    <img class="quotes" src="assets/images/elon.png" alt="alternative" />
+                    <div class="card-body">
+                        <p class="testimonial-text">Voy a comprar esta mierda</p>
+                        <div class="testimonial-author">Elon Musk</div>
+                        <div class="occupation">Futuro Presidente de SIHAM JD</div>
+                    </div>
+                    <div class="gradient-floor red-to-blue"></div>
+                </div>
+              
+                
+                <div class="card">
+                    <img class="quotes" src="assets/images/yamila.jpg" alt="alternative" />
+                    <div class="card-body">
+                        <p class="testimonial-text">Bachiller y su mapa conceptual?</p>
+                        <div class="testimonial-author">Yamila Gascon</div>
+                        <div class="occupation">Profesora de planificación</div>
+                    </div>
+                    <div class="gradient-floor blue-to-purple"></div>
+                </div>
+              
+                
+                <div class="card">
+                    <img class="quotes" src="assets/images/queen.jpg" alt="alternative" />
+                    <div class="card-body">
+                        <p class="testimonial-text">Me mori cuando vi los precios</p>
+                        <div class="testimonial-author">ISABEL II</div>
+                        <div class="occupation">Zombie</div>
+                    </div>
+                    <div class="gradient-floor purple-to-green"></div>
+                </div>
+              
+            </div> 
+        </div>
+    </div> 
+  </div> 
+  <div class="slider-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>Tenemos mas de <span class="blue">100</span> clientes en todo el estado Monagas</h4>
+                <hr class="section-divider" />
+             
+                <div class="slider-container d-flex justify-content-center align-items-center">
+                    <div class="swiper-container image-slider">
+                        <div class="swiper-wrapper">
+                           <div class="row">
+                            <div class="col-2">
+                                <img class="img-fluid" src="assets/images/customer-logo-1.png" alt="Nestle" />
+                            </div>
+                            <div class="col-2">
+                                <img class="img-fluid" src="assets/images/customer-logo-2.png" alt="Harina Pan" />
+                            </div>
+                            <div class="col-2">
+                                <img class="img-fluid" src="assets/images/customer-logo-3.png" alt="Ham" />
+                            </div>
+                            <div class="col-2">
+                                <img class="img-fluid" src="assets/images/customer-logo-4.png" alt="Alimentos Polar" />
+                            </div>
+                            <div class="col-2">
+                                <img class="img-fluid" src="assets/images/customer-logo-5.png" alt="Primor" />
+                            </div>
+                            <div class="col-2">
+                                <img class="img-fluid" src="assets/images/du.jpg" alt="Diablos Underwood" />
+                            </div>
+                           </div>
+                        </div>
+                    </div> 
+                </div> 
+               
+            </div> 
+        </div>
+    </div> 
+  </div> 
+  ]
+  <div class="basic-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-container">
+                    <h2 >PONTE EN CONTACTO CON NOSOTROS</h2>
+                    <p class="p-large">Aqui te dejamos nuestro correo y telefono:</p>
+                    <button class="btn btn-lg btn-primary"><span class="white">siham@gmail.com</span></button>
+                    <br>
+                    <button class="m-3 btn btn-lg btn-primary"><span class="white">5435345345</span></button>
+                </div> 
+            </div> 
+        </div>
+    </div> 
+  </div> 
+  
+  <div class="footer bg-gray"   id="contact" #contact>
+    <img class="decoration-circles" src="assets/images/decoration-circles.png" alt="alternative" />
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>SIHAM TU ELECCION</h4>
+                <div class="social-container">
+                    <span class="fa-stack">
+                        <a href="https://facebook.com/siham">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-facebook-f fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack">
+                        <a href="https://twitter.com/siham">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-twitter fa-stack-1x"></i>
+                        </a>
+                    </span>
+                    <span class="fa-stack">
+                        <a href="https://instagram.com/siham">
+                            <i class="fas fa-circle fa-stack-2x"></i>
+                            <i class="fab fa-instagram fa-stack-1x"></i>
+                        </a>
+                    </span>
+                </div> 
+            </div> 
+        </div>
+    </div> 
+  </div> 
+  <div class="copyright bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <ul class="list-unstyled li-space-lg p-small">
+                    <li><a>Derechos Reservados 2022</a></li>
+                </ul>
+            </div> 
+            <div class="col-lg-3 col-md-12 col-sm-12">
+            </div> 
+            <div class="col-lg-3 col-md-12 col-sm-12">
+                <p class="p-small statement">SIHAM JD ©</p>
+            </div> 
+        </div> 
+    </div> 
+  </div>
+  <button id="myBtn">
+    <img src="assets/images/up-arrow.png" (click)="moveToHeader()" alt="alternative" />
+  </button>
+  

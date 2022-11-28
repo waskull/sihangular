@@ -1,0 +1,16 @@
+<app-header title="Clientes" componentName="client"></app-header>
+
+<hr>
+<div class="form-group mt-2 container-fluid">
+    <input type="text" class="form-control" name="search" placeholder="Buscar..." [(ngModel)]="search">
+</div>
+<div class="card shadow border-0 mb-7">
+    <div class="card-header">
+        <div class="row">
+            <h5 class="mb-0 col">Clientes </h5>
+                <app-modal [clientForm]="true" modalId="modal" (emitData)="newValue($event)" class="col text-sm-end"></app-modal>
+        </div>
+
+    </div>
+    <app-table [colNames]="columnNames" [columns]="columns" [clientModal]="true" [rowData]="clientList" [operations]="op" (onEdit)="edit($event)" (onDelete)="delete($event)"></app-table>
+</div>  

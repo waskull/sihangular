@@ -1,0 +1,26 @@
+.btn-bd-primary {
+    background-color: #673ab7;
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: #673ab7;
+    --bs-btn-bg: #673ab7;
+    --bs-btn-border-color: #673ab7;
+    --bs-btn-border-radius: .5rem;
+    --bs-btn-hover-color: #673ab7;
+    --bs-btn-hover-bg: #{shade-color(#673ab7, 10%)};
+    --bs-btn-hover-border-color: #{shade-color(#673ab7, 10%)};
+    --bs-btn-focus-shadow-rgb: #673ab7;
+    --bs-btn-active-color: #673ab7;
+    --bs-btn-active-bg: #{shade-color(#673ab7, 20%)};
+    --bs-btn-active-border-color: #{shade-color(#673ab7, 20%)};
+    border-color: #673ab7;
+}
+
+#divChart{
+    display: flex;
+    max-width: 900px;
+    height: 400px;
+}
+
+header{
+    font-family: 'Ubuntu', sans-serif;
+}

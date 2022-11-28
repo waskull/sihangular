@@ -1,0 +1,12 @@
+<app-header title="Inventorio"></app-header>
+
+<hr>
+<div class="card shadow border-0 mb-7">
+    <div class="card-header">
+        <div class="row">
+            <h5 class="mb-0 col">Inventario </h5>
+                <!-- <app-modal [inventoryForm]="true" modalId="modal" (emitData)="newValue($event)" class="col text-sm-end"></app-modal> -->
+        </div>
+    </div>
+    <app-table [colNames]="columnNames" [columns]="columns" [inventoryModal]="true"  [rowData]="inventoryList" [operations]="op" (onEdit)="edit($event)"></app-table>
+</div>  

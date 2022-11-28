@@ -1,0 +1,45 @@
+.navbar-custom{
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    background: linear-gradient(to right, #673ab7, #512da8);
+    font-family: 'Ubuntu', sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    min-width: 220px;
+}
+
+.navbar-custom li :hover{
+    background-color: #512da8;
+}
+
+li{
+    cursor: pointer;
+}
+.badge {
+    padding: 1px 9px 2px;
+    font-size: 12.025px;
+    font-weight: bold;
+    white-space: nowrap;
+    color: #ffffff;
+    background-color: #673ab7;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+  }
+  
+  .badge:hover {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .badge-primary:hover{
+    background-color: #512da8;
+  }
+  
+  .badge-error {
+    background-color: #db0400;
+  }
+  
+  .badge-error:hover {
+    background-color: #960200;
+  }

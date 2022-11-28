@@ -1,0 +1,16 @@
+<app-header title="Facturas"></app-header>
+
+<hr>
+<div class="card shadow border-0 mb-7">
+    <div class="card-header">
+        <div class="row">
+            <h5 class="mb-0 col">Facturas </h5>
+            <ng-container *ngIf="showButton">
+                <app-modal [billForm]="true" modalId="modal" (emitData)="newValue($event)" class="col text-sm-end"></app-modal>
+            </ng-container>
+
+        </div>
+    </div>
+    <app-table [colNames]="columnNames" [columns]="columns" [report]="true" [rowData]="billList" [billModal]="true"
+        [operations]="op" (onEdit)="edit($event)" (onDelete)="delete($event)"></app-table>
+</div>

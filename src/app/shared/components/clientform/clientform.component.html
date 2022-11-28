@@ -1,0 +1,72 @@
+<form (ngSubmit)="sendData()" [formGroup]="clientForm">
+    <div class="row">
+      <div class="mb-3 form-floating form-group col">
+        <label for="firstname" class="col-form-label py-1">Nombre:</label>
+        <input type="text" class="form-control" id="firstname" formControlName="firstname">
+        <div *ngIf="clientForm.get('firstname')?.touched && clientForm.get('firstname')?.errors?.['required']"
+          class="alert mt-3 alert-danger">El nombre es requerido.</div>
+        <div *ngIf="clientForm.get('firstname')?.touched && clientForm.get('firstname')?.errors?.['minlength']"
+          class="alert mt-3 alert-danger">El nombre debe de tener minimo
+          {{clientForm.get('firstname')?.errors?.['minlength'].requiredLength}} caracteres.</div>
+      </div>
+      <div class="mb-3 form-floating form-group col">
+        <label for="lastname" class="col-form-label py-1">Apellido:</label>
+        <input type="text" class="form-control" id="lastname" formControlName="lastname">
+        <div *ngIf="clientForm.get('lastname')?.touched && clientForm.get('lastname')?.errors?.['required']"
+          class="alert mt-3 alert-danger">El apellido es requerido.</div>
+        <div *ngIf="clientForm.get('lastname')?.touched && clientForm.get('lastname')?.errors?.['minlength']"
+          class="alert mt-3 alert-danger">El apellido debe de tener minimo
+          {{clientForm.get('lastname')?.errors?.['minlength'].requiredLength}} caracteres.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mb-3 form-floating form-group col">
+        <label for="email" class="col-form-label py-1">Correo:</label>
+        <input type="text" class="form-control" id="email" formControlName="email">
+        <div *ngIf="clientForm.get('email')?.touched && clientForm.get('email')?.errors?.['required']"
+          class="alert mt-3 alert-danger">El Correo es requerido.</div>
+        <div *ngIf="clientForm.get('email')?.touched && clientForm.get('email')?.errors?.['minlength']"
+          class="alert mt-3 alert-danger">El Correo debe de tener minimo
+          {{clientForm.get('email')?.errors?.['minlength'].requiredLength}} caracteres.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mb-3 form-floating form-group col">
+        <label for="cedula" class="col-form-label py-1">Cedula:</label>
+        <input type="text" class="form-control" id="cedula" formControlName="cedula">
+        <div *ngIf="clientForm.get('cedula')?.touched && clientForm.get('cedula')?.errors?.['required']"
+          class="alert mt-3 alert-danger">La cedula es requerida.</div>
+        <div *ngIf="clientForm.get('cedula')?.touched && clientForm.get('cedula')?.errors?.['minlength']"
+          class="alert mt-3 alert-danger">La cedula debe de tener minimo
+          {{clientForm.get('cedula')?.errors?.['minlength'].requiredLength}} caracteres.</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mb-3 form-floating form-group col">
+        <label for="phone" class="col-form-label py-1">Telefono:</label>
+        <input type="text" class="form-control" id="phone" formControlName="phone">
+        <div *ngIf="clientForm.get('phone')?.touched && clientForm.get('phone')?.errors?.['minlength']"
+          class="alert mt-3 alert-danger">El telefono debe de tener minimo
+          {{clientForm.get('phone')?.errors?.['minlength'].requiredLength}} caracteres.</div>
+      </div>
+    </div>
+    <span *ngIf="error" class="text-danger px-1">{{error}}</span>
+    <div class="py-2"></div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        Cerrar
+      </button>
+      <ng-container *ngIf="data; else elseTemplate">
+        <button type="button" class="btn btn-primary" type="submit" [disabled]="clientForm.invalid">
+          Editar
+        </button>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <button type="button" class="btn btn-primary" type="submit" [disabled]="clientForm.invalid">
+          Crear
+        </button>
+      </ng-template>
+      
+      
+    </div>
+  </form>

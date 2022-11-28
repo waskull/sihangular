@@ -1,0 +1,50 @@
+<ng-container>
+<button type="button" (click)="openFormModal()" class="btn btn-outline-primary btn-sm">
+    + {{buttonName}}
+</button>
+
+
+
+    <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" id="modal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content text-sm-start">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Crear</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-justify">
+                    <h5 class="mb-3">Introduzca los datos del nuevo registro</h5>
+                    <ng-container *ngIf="userForm" >
+                        <userform (emitForm)="emit($event)" [userData]="data"></userform>
+                    </ng-container>
+                    <ng-container *ngIf="clientForm" >
+                        <clientform (emitForm)="emit($event)" [data]="data"></clientform>
+                    </ng-container>
+                    <ng-container *ngIf="companyForm">
+                        <companyForm (emitForm)="emit($event)" [data]="data"></companyForm>
+                    </ng-container>
+                    <ng-container *ngIf="itemForm">
+                        <itemform (emitForm)="emit($event)" [data]="data"></itemform>
+                    </ng-container>
+                    <ng-container *ngIf="scheduleForm">
+                        <scheduleform (emitForm)="emit($event)" [data]="data"></scheduleform>
+                    </ng-container>
+                    <ng-container *ngIf="inventoryForm">
+                        <inventoryform (emitForm)="emit($event)" [data]="data"></inventoryform>
+                    </ng-container>
+                    <ng-container *ngIf="purchaseForm">
+                        <purchaseform (emitForm)="emit($event)" [data]="data"></purchaseform>
+                    </ng-container>
+                    <ng-container *ngIf="saleForm">
+                        <saleform (emitForm)="emit($event)" [data]="data"></saleform>
+                    </ng-container>
+                    <ng-container *ngIf="billForm">
+                        <billform (emitForm)="emit($event)" [data]="data"></billform>
+                    </ng-container>
+            </div>
+
+        </div>
+    </div>
+</div>
+</ng-container>

@@ -1,0 +1,114 @@
+<div class="form-group mt-2 container-fluid">
+    <input type="text" class="form-control" name="search" placeholder="Buscar..." [(ngModel)]="search">
+</div>
+<div class="table-responsive" id="tablee">
+    <table class="table table-hover table-nowrap">
+        <thead class="thead-light">
+            <ng-container *ngIf="rowData.length > 0; else NODATA">
+                <tr>
+                    <th scope="col" *ngFor="let name of colNames">{{name}}</th>
+                    <th *ngIf="operations.delete || operations.edit"></th>
+                </tr>
+            </ng-container>
+            <ng-template #NODATA>
+                <th class="text-center"></th>
+            </ng-template>
+            
+        </thead>
+        <tbody>         
+            <ng-container *ngIf="rowData.length > 0; else noData">
+                <tr *ngFor="let row of rowData | filter: search | paginate: { itemsPerPage: 10, currentPage: p}">
+                    <td class="td" *ngFor="let name of columns">{{[row[name]]}}</td>
+                    <td *ngIf="operations.delete || operations.edit || report" class="text-end">
+                        <ng-container *ngIf="operations.edit && !isVendedor">
+                        <button type="button" (click)="open(row.id)" class="btn btn-sm btn-square btn-neutral text-success text-success-hover">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                            <div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" [id]="row.id" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content text-sm-start">
+                                    <div class="modal-header">
+                                        <h3 class="modal-title" id="exampleModalLabel">Editar</h3>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+                                    </div>
+                                    <div class="modal-body text-justify">
+                                            <h5 class="mb-3">Edite los datos del nuevo registro {{row?.firstname}}</h5>
+                                            <ng-container *ngIf="userModal" >
+                                                <userform (emitForm)="edit($event)" [userData]="row"></userform>
+                                            </ng-container>
+                                            <ng-container *ngIf="clientModal" >
+                                                <clientform (emitForm)="edit($event)" [data]="row"> </clientform>
+                                            </ng-container>
+                                            <ng-container *ngIf="companyModal">
+                                                <companyForm (emitForm)="edit($event)" [data]="row"> </companyForm>
+                                            </ng-container>
+                                            <ng-container *ngIf="itemModal">
+                                                <itemform (emitForm)="edit($event)" [data]="row"></itemform>
+                                            </ng-container>
+                                            <ng-container *ngIf="inventoryModal">
+                                                <inventoryform (emitForm)="edit($event)" [data]="row"></inventoryform>
+                                            </ng-container>
+                                            <ng-container *ngIf="scheduleModal">
+                                                <scheduleform (emitForm)="edit($event)" [data]="row"></scheduleform>
+                                            </ng-container>
+                                            <ng-container *ngIf="purchaseModal">
+                                                <purchaseform (emitForm)="edit($event)" [data]="row"></purchaseform>
+                                            </ng-container>
+                                            <ng-container *ngIf="saleModal">
+                                                <saleform (emitForm)="edit($event)" [data]="row"></saleform>
+                                            </ng-container>
+                                            <ng-container *ngIf="billModal">
+                                                <billform (emitForm)="edit($event)" [data]="row"></billform>
+                                            </ng-container>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        </ng-container>
+                        
+                        <button *ngIf="operations.delete && !isVendedor" type="button" class="btn btn-sm btn-square btn-neutral text-danger text-danger-hover mx-1" (click)="delete(row)"> <i class="bi bi-trash"></i></button>
+                        <ng-container *ngIf="saleModal && report">
+                            <reportgenerator [isSale]="true" [data]="row"></reportgenerator>
+                        </ng-container>
+                        <ng-container *ngIf="purchaseModal && report">
+                            <reportgenerator [isPurchase]="true" [data]="row"></reportgenerator>
+                        </ng-container>
+                        <ng-container *ngIf="billModal && report">
+                            <reportgenerator [isBill]="true" [data]="row"></reportgenerator>
+                        </ng-container>
+                        
+                        <!-- <button *ngIf="report" type="button" (click)="generateReport(row)" class="btn btn-sm btn-square btn-neutral text-dark text-dark-hover"> <i class="bi bi-printer"></i></button>   -->
+                    </td>
+                </tr>
+            </ng-container>
+            <ng-template #noData>
+                <tr>
+                    <td class="text-center">No Hay Registros</td>
+                </tr>
+            </ng-template>
+            
+            
+        </tbody>
+    </table>
+</div>
+
+<div class="card-footer border-0 ">
+    <div class="text-center">
+        <pagination-controls 
+        (pageChange)="p = $event" 
+        [autoHide]="true"
+        [directionLinks]="true"
+        [responsive]="true"
+        previousLabel="Anterior"
+        nextLabel="Siguiente"
+        screenReaderPaginationLabel="Paginación"
+        screenReaderPageLabel="pagina"
+        screenReaderCurrentLabel="Estas en la pagina"
+    ></pagination-controls>
+    </div>
+    <div class="text-right">
+        <strong *ngIf="rowData.length > 0" class="font-weight-bold text-muted">Mostrando {{rowData.length}} registros.</strong>
+    </div>
+</div>

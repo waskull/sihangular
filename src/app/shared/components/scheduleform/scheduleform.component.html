@@ -1,0 +1,76 @@
+<form (ngSubmit)="sendData()" [formGroup]="dataForm">
+    <div class="row">
+        <div class="mb-3 form-floating form-group col">
+            <label for="description" class="col-form-label py-1">Descripcion:</label>
+            <input type="text" class="form-control" id="description" formControlName="description">
+            <div *ngIf="dataForm.get('description')?.touched && dataForm.get('description')?.errors?.['required']"
+                class="alert mt-3 alert-danger">La descripcion es requerido.</div>
+            <div *ngIf="dataForm.get('description')?.touched && dataForm.get('description')?.errors?.['minlength']"
+                class="alert mt-3 alert-danger">La descripcion debe de tener minimo
+                {{dataForm.get('description')?.errors?.['minlength'].requiredLength}} caracteres.</div>
+        </div>
+    </div>
+    <div class="mb-3 form-floating form-group col">
+        <label for="roles" class="col-form-label py-1">Vendedor:</label>
+        <select class="form-select" aria-label="Seleccion de Cliente" name="salesman" id="salesman"
+            formControlName="salesman">
+            <option *ngFor="let user of userList" [value]="user.id">{{user.firstname}} {{user.lastname}}</option>
+        </select>
+        <div *ngIf="dataForm.get('salesman')?.touched && dataForm.get('salesman')?.errors?.['required']"
+            class="alert mt-3 alert-danger">El vendedor es requerido.</div>
+        <div *ngIf="dataForm.get('salesman')?.touched && dataForm.get('salesman')?.errors?.['min']"
+            class="alert mt-3 alert-danger">
+            Debes de introducir un usuario valido.</div>
+    </div>
+    <div class="mb-3 form-floating form-group col">
+        <label for="roles" class="col-form-label py-1">Selecciona las rutas del vendedor:</label>
+        <select class="form-select" aria-label="Seleccion de Cliente" name="companies" id="companies"
+            formControlName="companies">
+            <option *ngFor="let company of companies" [value]="company.id" (click)="addCompany(company)">{{company.name}}, {{company.address}}
+            </option>
+        </select>
+        <div *ngIf="dataForm.get('companies')?.touched && dataForm.get('companies')?.errors?.['required']"
+            class="alert mt-3 alert-danger">La ruta es requerida.</div>
+        <div *ngIf="dataForm.get('companies')?.touched && dataForm.get('companies')?.errors?.['min']"
+            class="alert mt-3 alert-danger">
+            Debes de introducir una ruta valida.</div>
+    </div>
+    <ol class="list-group list-group-numbered">
+        <li class="list-group-item d-flex justify-content-between align-items-start" *ngFor="let c of selectedCompanies" (click)="deleteCompany(c)">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">{{c.name}}</div>
+            {{c.address}}
+          </div>
+          <span class="badge bg-primary rounded-pill">{{c.client.firstname}} {{c.client.lastname}}</span>
+        </li>
+      </ol>
+      <div *ngIf="data?.description" class="mb-3 form-floating form-group col">
+        <label for="status" class="col-form-label py-1">Estado:</label>
+        <select class="form-select" aria-label="Seleccion de Estado" name="status" id="status"
+            formControlName="status">
+            <option value="INCOMPLETA">INCOMPLETA</option>
+            <option value="COMPLETADA">COMPLETADA</option>
+        </select>
+        <div *ngIf="dataForm.get('status')?.touched && dataForm.get('status')?.errors?.['required']"
+            class="alert mt-3 alert-danger">El vendedor es requerido.</div>
+    </div>
+    <span *ngIf="error" class="text-danger px-1">{{error}}</span>
+    <div class="py-2"></div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Cerrar
+        </button>
+        <ng-container *ngIf="data; else elseTemplate">
+            <button type="button" class="btn btn-primary" type="submit" [disabled]="dataForm.invalid">
+                Editar
+            </button>
+        </ng-container>
+        <ng-template #elseTemplate>
+            <button type="button" class="btn btn-primary" type="submit" [disabled]="dataForm.invalid">
+                Crear
+            </button>
+        </ng-template>
+
+
+    </div>
+</form>

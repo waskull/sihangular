@@ -1,0 +1,18 @@
+<app-header title="Usuarios" componentName="user"></app-header>
+
+<hr>
+<div class="form-group mt-2 container-fluid">
+    <input type="text" class="form-control" name="search" placeholder="Buscar..." [(ngModel)]="search">
+</div>
+<div class="card shadow border-0 mb-7">
+    <div class="card-header">
+        <div class="row">
+            <h5 class="mb-0 col">Usuarios </h5>
+                <app-modal [userForm]="true" modalId="modal" (emitData)="newValue($event)" class="col text-sm-end"></app-modal>
+        </div>
+
+        
+    </div>
+    <app-table [colNames]="columnNames" [columns]="columns" [userModal]="true" [rowData]="userList" [operations]="op" (onEdit)="editUser($event)" (onDelete)="deleteUser($event)"></app-table>
+</div>  
+
