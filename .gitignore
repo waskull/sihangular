@@ -50,3 +50,5 @@ Thumbs.db
 .git/
 .firebaserc
 firebase.json
+
+.vscode/
