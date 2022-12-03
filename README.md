@@ -9,7 +9,7 @@ Para levantar el servidor de desarrollo simplemente se necesita utilizar "ng ser
 
 Imagenes:
 
-<img src="https://raw.githubusercontent.com/waskull/sihangular/main/images/home.png" width="720" alt="Sihangular Home" />
+<img src="https://raw.githubusercontent.com/waskull/sihangular/main/images/home.png" alt="Sihangular Home" />
 
 <img src="https://raw.githubusercontent.com/waskull/sihangular/main/images/dash.png" width="720" alt="Sihangular Dash" />
 
