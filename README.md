@@ -4,7 +4,7 @@ Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-
 
 # Informacion
 Frontend para [Siham-NestJS](https://github.com/waskull/siham-nestjs)
-Para levantar el servidor de desarrollo simplemente se necesita utilizar "ng serve" y para transpilar la aplicación utilizar "ng build --configuration=production"
+Para levantar el servidor de desarrollo simplemente usen "ng serve" y para buildear la aplicación simplemente utilizar "ng build --configuration=production"
 
 
 Imagenes:
